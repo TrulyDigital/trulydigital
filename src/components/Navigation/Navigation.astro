@@ -1,5 +1,37 @@
 ---
 
+// img logo
+const logoSrc: string = '/imagenes/logo/logo-32x32.webp';
+const logoAlt: string = 'Logo de TrulyDigital.tech';
+
+// img menu desplegable
+const arrowDownSrc: string = '/imagenes/navegacion/teclado-flecha-abajo.webp';
+const arrowDownAlt: string = 'Menú desplegable'; 
+
+// ideas de negocios
+const ideasDeNegociosSrc: string = '/imagenes/navegacion/ideas-de-negocios.webp';
+const ideasDeNegociosAlt: string = 'Ideas de Negocios';
+const ideasDeNegociosText: string = 'Ideas de Negocios';
+const ideasDeNegociosDesc: string = 'Inspirate, o encuentra casos de éxito.';
+
+// emprendimientos desde casa
+const emprendimientosDesdeCasaSrc: string = '/imagenes/navegacion/emprendimientos-desde-casa.webp';
+const emprendimientosDesdeCasaAlt: string = 'Emprendimientos desde casa';
+const emprendimientosDesdeCasaText: string = 'Desde casa';
+const emprendimientosDesdeCasaDesc: string = 'Desde tu hogar, también puedes emprender.';
+
+// emprendimiento digital
+const emprendimientoDigitalSrc: string = '/imagenes/navegacion/emprendimiento-digital.webp';
+const emprendimientoDigitalAlt: string = 'Emprendimiento Digital';
+const emprendimientoDigitalText: string = 'Digital';
+const emprendimientoDigitalDesc: string = 'Infinitas oportunidades con la ayuda de la tecnología.';
+
+// emprendimientos para mujeres
+const emprendimientosParaMujeresSrc: string = '/imagenes/navegacion/emprendimientos-para-mujeres.webp';
+const emprendimientosParaMujeresAlt: string = 'Emprendimientos para Mujeres';
+const emprendimientosParaMujeresText: string = 'Para Mujeres';
+const emprendimientosParaMujeresDesc: string = 'Proyectos que regularmente ejecutan las mujeres.';
+
 ---
 
 <nav class="navigation">
@@ -10,7 +42,7 @@
     <!-- Navigation Logo -->
     <div class="navigation__logo">
       <a href="/">
-        <img src="/imagenes/logo/logo-32x32.webp" alt="Logo de TrulyDigital.tech" />
+        <img src={logoSrc} alt={logoAlt} />
         <span>TrulyDigital.tech</span>
       </a>
     </div>
@@ -25,7 +57,7 @@
             <span class="group-hover:text-yellow-700">
               Emprendimiento
             </span>
-            <img src="/imagenes/navegacion/teclado-flecha-abajo.webp" alt="Menú desplegable" />
+            <img src={arrowDownSrc} alt={arrowDownAlt} />
           </div>
           <!-- Sub Menu -->
           <div class="navigation__menu___submenu-cols group-hover:visible group-hover:opacity-100">
@@ -33,13 +65,13 @@
               <!-- Sub Menu - Item -->
               <li class="navigation__menu___submenu-item">
                 <a href="/">
-                  <img src="/imagenes/navegacion/ideas-de-negocios.webp" alt="Ideas de Negocios">
+                  <img src={ideasDeNegociosSrc} alt={ideasDeNegociosAlt}>
                   <span>
                     <span>
-                      Ideas de Negocios
+                      {ideasDeNegociosText}
                     </span>
                     <span>
-                      Inspirate, o encuentra casos de éxito.
+                      {ideasDeNegociosDesc}
                     </span>
                   </span>
                 </a>
@@ -47,13 +79,13 @@
               <!-- Sub Menu - Item -->
               <li class="navigation__menu___submenu-item">
                 <a href="/">
-                  <img src="/imagenes/navegacion/emprendimientos-desde-casa.webp" alt="Emprendimientos desde casa">
+                  <img src={emprendimientosDesdeCasaSrc} alt={emprendimientosDesdeCasaAlt}>
                   <span>
                     <span>
-                      Desde Casa
+                      {emprendimientosDesdeCasaText}
                     </span>
                     <span>
-                      Desde tu hogar, también puedes emprender.
+                      {emprendimientosDesdeCasaDesc}
                     </span>
                   </span>
                 </a>
@@ -61,13 +93,13 @@
               <!-- Sub Menu - Item -->
               <li class="navigation__menu___submenu-item">
                 <a href="/">
-                  <img src="/imagenes/navegacion/emprendimiento-digital.webp" alt="Emprendimiento Digital">
+                  <img src={emprendimientoDigitalSrc} alt={emprendimientoDigitalAlt}>
                   <span>
                     <span>
-                      Digital
+                      {emprendimientoDigitalText}
                     </span>
                     <span>
-                      Infinitas oportunidades con la ayuda de la tecnología.
+                      {emprendimientoDigitalDesc}
                     </span>
                   </span>
                 </a>
@@ -75,13 +107,13 @@
               <!-- Sub Menu - Item -->
               <li class="navigation__menu___submenu-item">
                 <a href="/">
-                  <img src="/imagenes/navegacion/emprendimientos-para-mujeres.webp" alt="Emprendimientos para Mujeres">
+                  <img src={emprendimientosParaMujeresSrc} alt={emprendimientosParaMujeresAlt}>
                   <span>
                     <span>
-                      Para Mujeres
+                      {emprendimientosParaMujeresText}
                     </span>
                     <span>
-                      Proyectos que regularmente ejecutan las mujeres.
+                      {emprendimientosParaMujeresDesc}
                     </span>
                   </span>
                 </a>
@@ -180,7 +212,7 @@
                       Astro
                     </span>
                     <span>
-                      Framework FrontEnd que esta ganando popularidad.
+                      Framework para HTML, CSS, JavaScript, Tailwind y mas.
                     </span>
                   </span>
                 </a>

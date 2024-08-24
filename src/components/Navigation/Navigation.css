@@ -60,7 +60,7 @@
 
 .navigation__menu > ul > li > div:nth-child(1) img{
   @apply 
-  ml-2 h-2;
+  ml-2 h-[6px];
 }
 
 /* Sub Menu - Flex Col */
