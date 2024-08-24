@@ -1,0 +1,165 @@
+/* Navigation.astro */
+
+.navigation {
+  @apply 
+  flex items-center justify-center h-16;
+}
+
+/* Navigation Container */
+
+.navigation_container{
+  @apply 
+  flex items-center justify-between w-11/12 2xl:w-3/4;
+}
+
+/* Navigation Logo */
+
+.navigation__logo{
+  @apply 
+  flex-none;
+}
+
+.navigation__logo > a {
+  @apply 
+  flex flex-row items-center;
+}
+
+.navigation__logo a > span {
+  @apply 
+  font-bold text-lg ml-1 lg:text-2xl;
+}
+
+/* Navigation Menu */
+
+.navigation__menu {
+  @apply 
+  hidden flex-none lg:block;
+}
+
+.navigation__menu > ul {
+  @apply 
+  flex flex-row;
+}
+
+/* Menu Item */
+
+.navigation__menu > ul > li {
+  @apply 
+  flex flex-col items-center ml-12 cursor-pointer relative;
+}
+
+.navigation__menu > ul > li > div:nth-child(1) {
+  @apply
+  flex flex-row items-center;
+}
+
+.navigation__menu > ul > li > div:nth-child(1) span{
+  @apply 
+  text-base text-gray-700;
+}
+
+.navigation__menu > ul > li > div:nth-child(1) img{
+  @apply 
+  ml-2 h-2;
+}
+
+/* Sub Menu */
+
+.navigation__menu > ul > li > div:nth-child(2) {
+  @apply
+  absolute top-full invisible opacity-0 pt-4 w-72 z-10
+  transition duration-300 ease-in-out;
+}
+
+.navigation__menu > ul > li > div:nth-child(2) ul {
+  @apply
+  flex flex-col border-2 border-gray-200 rounded-md shadow p-3;
+}
+
+/* Sub Menu - Item*/
+
+.navigation__menu___submenu-item{
+  @apply
+  p-3 hover:bg-gray-100 hover:rounded-md;
+}
+
+.navigation__menu___submenu-item > a {
+  @apply
+  flex flex-row items-center;
+}
+
+.navigation__menu___submenu-item > a > img {
+  @apply
+  h-5;
+}
+
+.navigation__menu___submenu-item > a > span {
+  @apply
+  flex flex-col ml-3;
+}
+
+.navigation__menu___submenu-item > a > span > span:nth-child(1) {
+  @apply
+  text-lg font-bold;
+}
+
+.navigation__menu___submenu-item > a > span > span:nth-child(2) {
+  @apply
+  text-sm text-gray-700;
+}
+
+/* Navigation Extras */
+
+.navigation__extras {
+  @apply 
+  ml-auto flex items-center justify-self-end;
+}
+
+.navigation__extras > a {
+  @apply 
+  w-9 h-9 ml-2 border-solid border-2 border-gray-300 rounded-md
+  justify-center items-center hover:border-2 hover:border-yellow-500
+  hover:rounded-md hidden relative lg:flex lg:flex-col;
+}
+
+.navigation__extras > a > img {
+  @apply
+  w-6;
+}
+
+.navigation__extras > a > span{
+  @apply
+  absolute top-12 bg-yellow-400 p-1 rounded-md text-xs font-bold
+  shadow-lg invisible transition duration-500 ease-in-out opacity-0;
+}
+
+.navigation__extras > button > img {
+  @apply 
+  w-5;
+}
+
+.navigation__extras > button:nth-child(3) {
+  @apply 
+  w-9 h-9 border-solid border-2 border-gray-300 rounded-md
+  justify-center items-center hover:border-2 hover:border-yellow-500
+  hover:rounded-md transition-all hidden lg:flex ml-2 relative;
+}
+
+.navigation__extras > button:nth-child(3) > span {
+  @apply
+  absolute -bottom-10 bg-yellow-400 p-1 rounded-md text-xs font-bold
+  shadow-lg invisible opacity-0 transition duration-500 ease-in-out;
+}
+
+.navigation__extras > a:nth-child(4) {
+  @apply
+  bg-yellow-400 border-none rounded-md ml-10 hidden lg:flex
+  w-28 cursor-pointer hover:bg-yellow-300 transition-all
+  font-bold;
+}
+
+.navigation__extras > button:nth-child(5) {
+  @apply w-9 h-9 ml-2 rounded-lg lg:hidden
+  flex justify-center items-center hover:bg-yellow-300
+  transition-all bg-yellow-400;
+}
