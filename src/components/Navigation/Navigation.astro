@@ -241,16 +241,17 @@ const networks: NetworkMenuDto[] = [
     <!-- SideNav Menu -->
     <ul class="_sidenav_menu">
       {
-        nav.menu.map(menuItem => (
-          // Menu Item
+        nav.menu.map((menuItem, index) => (
+          // SideNav Menu Item
           <li class="_sidenav_menu_item">
-            <button>
+            <button id={`idSideNavSubMenuButton${index}`}>
               <span>
                 {menuItem.text}
               </span>
               <img src={arrowDownSrc} alt={arrowDownAlt} />
             </button>
-            <div>
+            {/* SideNav Sub Menu Box */}
+            <div id={`idSideNavSubMenuBox${index}`} class="_sidenav_sub_menu_box">
               <ul>
                 {
                   menuItem.subMenuItem.map(subMenuItem => (

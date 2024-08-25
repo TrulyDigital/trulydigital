@@ -1,8 +1,9 @@
 /* SideNav */
 ._sidenav {
   @apply
-  fixed w-0 top-0 right-0 h-screen z-50 bg-white shadow-2xl
-  border-l-gray-300 border-l flex flex-col overflow-auto;
+  w-0 fixed top-0 right-0 h-screen z-50 bg-white shadow-2xl
+  border-l-gray-300 border-l flex flex-col overflow-auto
+  transition-all duration-500 ease-in-out;
 }
 
 /* SideNav Close */
@@ -33,14 +34,27 @@
 
 ._sidenav_menu_item > button {
   @apply
-  flex flex-row items-center justify-between w-full;
+  flex flex-row items-center justify-between w-full mt-5 mb-5 border-b
+  border-gray-200;
+}
+
+._sidenav_menu_item > button > span {
+  @apply
+  pb-3;
+}
+
+/* SideNav Sub Menu Box */
+
+._sidenav_sub_menu_box {
+  @apply
+  invisible max-h-0 opacity-0 transition-all ease-in-out duration-300;
 }
 
 /* SideNav Sub Menu Item */
 
 ._sidenav_sub_menu_item {
   @apply
-  pt-3 pb-3 border-b border-gray-200;
+  pt-3 pb-3 border-b border-violet-300;
 }
 
 ._sidenav_sub_menu_item > a {
