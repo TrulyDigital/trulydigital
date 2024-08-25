@@ -1,4 +1,5 @@
 ---
+import { type NavigationMenuDto } from '../../types/dtos/NavigationMenu.dto';
 
 // img logo
 const logoSrc: string = '/imagenes/logo/logo-32x32.webp';
@@ -8,30 +9,129 @@ const logoAlt: string = 'Logo de TrulyDigital.tech';
 const arrowDownSrc: string = '/imagenes/navegacion/teclado-flecha-abajo.webp';
 const arrowDownAlt: string = 'Menú desplegable'; 
 
-// ideas de negocios
+// menu data
+const menu: NavigationMenuDto = {
+  menu: [
+    {
+      text: 'Emprendimiento',
+      subMenuItem: [
+        {
+          text: 'Ideas de Negocios',
+          desc: 'Inspirate y encuentra casos de éxito.',
+          iconSrc: '/imagenes/navegacion/ideas-de-negocios.webp',
+          iconAlt: 'Ideas de Negocios',
+          href: '/',
+        },
+        {
+          text: 'Desde casa',
+          desc: 'Desde tu hogar, también puedes emprender.',
+          iconSrc: '/imagenes/navegacion/emprendimientos-desde-casa.webp',
+          iconAlt: 'Emprendimientos desde casa',
+          href: '/',
+        },
+        {
+          text: 'Digital',
+          desc: 'Infinitas oportunidades con la ayuda de la tecnología.',
+          iconSrc: '/imagenes/navegacion/emprendimiento-digital.webp',
+          iconAlt: 'Emprendimiento Digital',
+          href: '/',
+        },
+        {
+          text: 'Para Mujeres',
+          desc: 'Proyectos que regularmente ejecutan las mujeres.',
+          iconSrc: '/imagenes/navegacion/emprendimientos-para-mujeres.webp',
+          iconAlt: 'Emprendimientos para Mujeres',
+          href: '/',
+        }
+      ]
+    },
+    {
+      text: 'Programación',
+      subMenuItem: [
+        {
+          text: 'NestJS',
+          desc: 'Framework backend para TypeScript.',
+          iconSrc: '/imagenes/navegacion/nestjs.webp',
+          iconAlt: 'NestJS',
+          href: '/',
+        },
+        {
+          text: 'Docker',
+          desc: 'Despliega tus aplicaciones de manera rápida y fácil.',
+          iconSrc: '/imagenes/navegacion/docker.webp',
+          iconAlt: 'Docker',
+          href: '/',
+        },
+        {
+          text: 'MongoDB',
+          desc: 'Una base de datos no relacional muy popular.',
+          iconSrc: '/imagenes/navegacion/mongodb.webp',
+          iconAlt: 'MongoDB',
+          href: '/',
+        },
+        {
+          text: 'SQL',
+          desc: 'Si eres programador FrontEnd o BackEnd, debes aprender SQL.',
+          iconSrc: '/imagenes/navegacion/sql.webp',
+          iconAlt: 'SQL',
+          href: '/',
+        },
+        {
+          text: 'TypeScript',
+          desc: 'Aprende a programar de cero a experto.',
+          iconSrc: '/imagenes/navegacion/typescript.webp',
+          iconAlt: 'TypeScript',
+          href: '/',
+        },
+        {
+          text: 'AstroJS',
+          desc: 'Framework para HTML, CSS, JavaScript, Tailwind y mas.',
+          iconSrc: '/imagenes/navegacion/astrojs.webp',
+          iconAlt: 'AstroJS',
+          href: '/',
+        },
+      ]
+    }
+  ]
+}
+
+// menu
+const emprendimientoMenu: string = 'Emprendimiento';
+const programacionMenu: string = 'Programación';
+
+
+
+// submenu - ideas de negocios
 const ideasDeNegociosSrc: string = '/imagenes/navegacion/ideas-de-negocios.webp';
 const ideasDeNegociosAlt: string = 'Ideas de Negocios';
 const ideasDeNegociosText: string = 'Ideas de Negocios';
 const ideasDeNegociosDesc: string = 'Inspirate, o encuentra casos de éxito.';
 
-// emprendimientos desde casa
+// submenu - emprendimientos desde casa
 const emprendimientosDesdeCasaSrc: string = '/imagenes/navegacion/emprendimientos-desde-casa.webp';
 const emprendimientosDesdeCasaAlt: string = 'Emprendimientos desde casa';
 const emprendimientosDesdeCasaText: string = 'Desde casa';
 const emprendimientosDesdeCasaDesc: string = 'Desde tu hogar, también puedes emprender.';
 
-// emprendimiento digital
+// submenu - emprendimiento digital
 const emprendimientoDigitalSrc: string = '/imagenes/navegacion/emprendimiento-digital.webp';
 const emprendimientoDigitalAlt: string = 'Emprendimiento Digital';
 const emprendimientoDigitalText: string = 'Digital';
 const emprendimientoDigitalDesc: string = 'Infinitas oportunidades con la ayuda de la tecnología.';
 
-// emprendimientos para mujeres
+// submenu - emprendimientos para mujeres
 const emprendimientosParaMujeresSrc: string = '/imagenes/navegacion/emprendimientos-para-mujeres.webp';
 const emprendimientosParaMujeresAlt: string = 'Emprendimientos para Mujeres';
 const emprendimientosParaMujeresText: string = 'Para Mujeres';
 const emprendimientosParaMujeresDesc: string = 'Proyectos que regularmente ejecutan las mujeres.';
 
+// extras - youtube
+const youtubeSrc: string = '/imagenes/navegacion/youtube.webp';
+const youtubeAlt: string = 'Canal de Youtube.';
+
+// extras - github
+const gitHubSrc: string = '/imagenes/navegacion/github.webp';
+const gitHubAlt: string = 'Perfil de GitHub.';
 ---
 
 <nav class="navigation">
@@ -55,7 +155,7 @@ const emprendimientosParaMujeresDesc: string = 'Proyectos que regularmente ejecu
         <li class="group">
           <div>
             <span class="group-hover:text-yellow-700">
-              Emprendimiento
+              {emprendimientoMenu}
             </span>
             <img src={arrowDownSrc} alt={arrowDownAlt} />
           </div>
@@ -126,7 +226,7 @@ const emprendimientosParaMujeresDesc: string = 'Proyectos que regularmente ejecu
         <li class="group">
           <div>
             <span class="group-hover:text-yellow-700">
-              Programación
+              {programacionMenu}
             </span>
             <img src="/imagenes/navegacion/teclado-flecha-abajo.webp" alt="Menú desplegable" />
           </div>
@@ -228,13 +328,13 @@ const emprendimientosParaMujeresDesc: string = 'Proyectos que regularmente ejecu
     <div class="navigation__extras">
       <a href="/" class="group">
         <!-- icon -->
-        <img src="/imagenes/navegacion/youtube.webp" alt="Canal de Youtube." />
+        <img src={youtubeSrc} alt={youtubeAlt} />
         <!-- tooltip -->
         <span class="group-hover:visible group-hover:opacity-100"> Youtube </span>
       </a>
       <a href="/" class="group">
         <!-- icon -->
-        <img src="/imagenes/navegacion/github.webp" alt="Perfil de GitHub." />
+        <img src={gitHubSrc} alt={gitHubAlt} />
         <!-- tooltip -->
         <span class="group-hover:visible group-hover:opacity-100"> GitHub </span>
       </a>
@@ -249,5 +349,16 @@ const emprendimientosParaMujeresDesc: string = 'Proyectos que regularmente ejecu
         <img src="/imagenes/navegacion/menu.webp" alt="Menú de navegación lateral" />
       </button>
     </div>
+  </div>
+
+  <!-- SideNav -->
+  <div class="sidenav__menu">
+    <!-- Close -->
+    <button>
+      <img src="" alt="">
+    </button>
+    <ul>
+
+    </ul>
   </div>
 </nav>

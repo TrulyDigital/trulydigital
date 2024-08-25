@@ -26,7 +26,8 @@
 
 .navigation__logo a > span {
   @apply 
-  font-bold text-lg ml-1 lg:text-2xl;
+  font-bold text-lg ml-1 lg:text-2xl hover:text-gray-600
+  transition duration-300;
 }
 
 /* Navigation Menu */
@@ -68,7 +69,7 @@
 .navigation__menu___submenu-cols {
   @apply
   absolute top-full invisible opacity-0 pt-4 w-72 z-10
-  transition duration-300 ease-in-out;
+  transition-all duration-300;
 }
 
 .navigation__menu___submenu-cols-1 {
@@ -76,10 +77,12 @@
   flex flex-col border border-gray-200 rounded-md shadow p-2;
 }
 
+/* Sub Menu - Grid Cols-2 */
+
 .navigation__menu___submenu-grid {
   @apply
   absolute top-full invisible opacity-0 pt-4 w-[576px] z-10
-  transition duration-300 ease-in-out;
+  transition-all duration-300 ease-in-out;
 }
 
 .navigation__menu___submenu-cols-2{
@@ -126,11 +129,14 @@
   ml-auto flex items-center justify-self-end;
 }
 
+/* Youtube y GitHub */
+
 .navigation__extras > a {
   @apply 
-  w-9 h-9 ml-2 border-solid border-2 border-gray-300 rounded-md
-  justify-center items-center hover:border-2 hover:border-yellow-500
-  hover:rounded-md hidden relative lg:flex lg:flex-col;
+  w-9 h-9 ml-2 justify-center items-center hidden relative
+  hover:border hover:border-yellow-500 hover:rounded-md 
+  border border-gray-200 rounded-md duration-300
+  lg:flex lg:flex-col;
 }
 
 .navigation__extras > a > img {
@@ -149,11 +155,13 @@
   w-5;
 }
 
+/* Botón de Buscar */
 .navigation__extras > button:nth-child(3) {
   @apply 
-  w-9 h-9 border-solid border-2 border-gray-300 rounded-md
-  justify-center items-center hover:border-2 hover:border-yellow-500
-  hover:rounded-md transition-all hidden lg:flex ml-2 relative;
+  w-9 h-9 border-solid
+  justify-center items-center hover:border hover:border-yellow-500
+  border border-gray-200 rounded-md hover:rounded-md hidden 
+  lg:flex ml-2 relative;
 }
 
 .navigation__extras > button:nth-child(3) > span {
@@ -162,13 +170,15 @@
   shadow-lg invisible opacity-0 transition duration-500 ease-in-out;
 }
 
+/* Contácto */
 .navigation__extras > a:nth-child(4) {
   @apply
-  bg-yellow-400 border-none rounded-md ml-10 hidden lg:flex
+  bg-yellow-400 border-none rounded-md ml-2 hidden lg:flex
   w-28 cursor-pointer hover:bg-yellow-300 transition-all
   font-bold;
 }
 
+/* Botón menú para móvile */
 .navigation__extras > button:nth-child(5) {
   @apply w-9 h-9 ml-2 rounded-lg lg:hidden
   flex justify-center items-center hover:bg-yellow-300
