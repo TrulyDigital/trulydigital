@@ -1,3 +1,69 @@
-.sidenav__menu{
-  
+/* SideNav */
+._sidenav {
+  @apply
+  fixed w-0 top-0 right-0 h-screen z-50 bg-white shadow-2xl
+  border-l-gray-300 border-l flex flex-col overflow-auto;
+}
+
+/* SideNav Close */
+
+._sidenav_close {
+  @apply
+  h-16 grid justify-items-stretch;
+}
+
+._sidenav_close > button {
+  @apply
+  justify-self-end;
+}
+
+._sidenav_close > button > img {
+  @apply
+  p-1 bg-yellow-400 rounded-lg;
+}
+
+/* SideNav Menu */
+
+._sidenav_menu {
+  @apply
+  pr-4 pl-4;
+}
+
+/* SideNav Menu Item */
+
+._sidenav_menu_item > button {
+  @apply
+  flex flex-row items-center justify-between w-full;
+}
+
+/* SideNav Sub Menu Item */
+
+._sidenav_sub_menu_item {
+  @apply
+  pt-3 pb-3 border-b border-gray-200;
+}
+
+._sidenav_sub_menu_item > a {
+  @apply
+  flex flex-row items-center;
+}
+
+._sidenav_sub_menu_item > a > img {
+  @apply
+  w-6 h-6;
+}
+
+._sidenav_sub_menu_item > a > span {
+  @apply
+  flex flex-col ml-2;
+}
+
+._sidenav_sub_menu_item > a > span > span:nth-child(1){
+  @apply
+  font-bold text-lg;
+}
+
+._sidenav_sub_menu_item > a > span > span:nth-child(2) {
+  @apply
+  text-sm text-gray-700;
 }

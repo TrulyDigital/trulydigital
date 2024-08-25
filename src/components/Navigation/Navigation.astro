@@ -18,6 +18,10 @@ const searchButtonAlt: string = 'Buscar cualqueir contenido';
 const mobileButtonSrc: string = '/imagenes/navegacion/menu.webp';
 const mobileButtonAlt: string = 'Menú de navegación para dispositivos móviles';
 
+// botón lateral para móviles Cerrar
+const mobileCloseButtonSrc: string = '/imagenes/navegacion/cerrar-menu.webp';
+const mobileCloseButtonAlt: string = 'Cerrar menú de navegación para dispositivos móviles';
+
 // menu data
 const nav: NavigationMenuDto = {
   menu: [
@@ -220,20 +224,61 @@ const networks: NetworkMenuDto[] = [
         Contácto 
       </a>
       <!-- Nav Networks Mobile Button -->
-      <button class="_nav_mobile_button">
+      <button id="idOpenMenuMobile" class="_nav_mobile_button">
         <img src={mobileButtonSrc} alt={mobileButtonAlt} />
       </button>
     </div>
   </div>
 
   <!-- SideNav -->
-  <div class="sidenav__menu">
-    <!-- Close -->
-    <button>
-      <img src="" alt="">
-    </button>
-    <ul>
-
+  <div id="idSideNav" class="_sidenav">
+    <!-- SideNav Close -->
+    <div class="_sidenav_close">
+      <button id="idCloseMenuMobile">
+        <img src={mobileCloseButtonSrc} alt={mobileCloseButtonAlt}>
+      </button>
+    </div>
+    <!-- SideNav Menu -->
+    <ul class="_sidenav_menu">
+      {
+        nav.menu.map(menuItem => (
+          // Menu Item
+          <li class="_sidenav_menu_item">
+            <button>
+              <span>
+                {menuItem.text}
+              </span>
+              <img src={arrowDownSrc} alt={arrowDownAlt} />
+            </button>
+            <div>
+              <ul>
+                {
+                  menuItem.subMenuItem.map(subMenuItem => (
+                    // SideNav Sub Menu Item
+                    <li class="_sidenav_sub_menu_item">
+                      <a href={subMenuItem.href}>
+                        <img src={subMenuItem.iconSrc} alt={subMenuItem.iconAlt} />
+                        <span>
+                          <span>
+                            {subMenuItem.text}
+                          </span>
+                          <span>
+                            {subMenuItem.desc}
+                          </span>
+                        </span>
+                      </a>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </li>
+        ))
+      }
     </ul>
   </div>
+
 </nav>
+<script src="./Navigation.ts"></script>
+
+
