@@ -1,5 +1,6 @@
 ---
 import { type NavigationMenuDto } from '../../types/dtos/NavigationMenu.dto';
+import { type NetworkMenuDto } from '../../types/dtos/NetworkMenu.dto';
 
 // img logo
 const logoSrc: string = '/imagenes/logo/logo-32x32.webp';
@@ -8,6 +9,14 @@ const logoAlt: string = 'Logo de TrulyDigital.tech';
 // img menu desplegable
 const arrowDownSrc: string = '/imagenes/navegacion/teclado-flecha-abajo.webp';
 const arrowDownAlt: string = 'Menú desplegable'; 
+
+// botón buscar
+const searchButtonSrc: string = '/imagenes/navegacion/buscar.webp';
+const searchButtonAlt: string = 'Buscar cualqueir contenido';
+
+// botón lateral para móviles
+const mobileButtonSrc: string = '/imagenes/navegacion/menu.webp';
+const mobileButtonAlt: string = 'Menú de navegación para dispositivos móviles';
 
 // menu data
 const nav: NavigationMenuDto = {
@@ -93,45 +102,24 @@ const nav: NavigationMenuDto = {
       ]
     }
   ]
-}
+};
 
-// menu
-const emprendimientoMenu: string = 'Emprendimiento';
-const programacionMenu: string = 'Programación';
+// network menu data
+const networks: NetworkMenuDto[] = [
+  {
+    iconSrc: '/imagenes/navegacion/youtube.webp',
+    iconAlt: 'Canal de Youtube.',
+    tooltipText: 'Youtube',
+    href: '/',
+  },
+  {
+    iconSrc: '/imagenes/navegacion/github.webp',
+    iconAlt: 'Perfil de GitHub.',
+    tooltipText: 'GitHub',
+    href: '/',
+  },
+];
 
-
-
-// submenu - ideas de negocios
-const ideasDeNegociosSrc: string = '/imagenes/navegacion/ideas-de-negocios.webp';
-const ideasDeNegociosAlt: string = 'Ideas de Negocios';
-const ideasDeNegociosText: string = 'Ideas de Negocios';
-const ideasDeNegociosDesc: string = 'Inspirate, o encuentra casos de éxito.';
-
-// submenu - emprendimientos desde casa
-const emprendimientosDesdeCasaSrc: string = '/imagenes/navegacion/emprendimientos-desde-casa.webp';
-const emprendimientosDesdeCasaAlt: string = 'Emprendimientos desde casa';
-const emprendimientosDesdeCasaText: string = 'Desde casa';
-const emprendimientosDesdeCasaDesc: string = 'Desde tu hogar, también puedes emprender.';
-
-// submenu - emprendimiento digital
-const emprendimientoDigitalSrc: string = '/imagenes/navegacion/emprendimiento-digital.webp';
-const emprendimientoDigitalAlt: string = 'Emprendimiento Digital';
-const emprendimientoDigitalText: string = 'Digital';
-const emprendimientoDigitalDesc: string = 'Infinitas oportunidades con la ayuda de la tecnología.';
-
-// submenu - emprendimientos para mujeres
-const emprendimientosParaMujeresSrc: string = '/imagenes/navegacion/emprendimientos-para-mujeres.webp';
-const emprendimientosParaMujeresAlt: string = 'Emprendimientos para Mujeres';
-const emprendimientosParaMujeresText: string = 'Para Mujeres';
-const emprendimientosParaMujeresDesc: string = 'Proyectos que regularmente ejecutan las mujeres.';
-
-// extras - youtube
-const youtubeSrc: string = '/imagenes/navegacion/youtube.webp';
-const youtubeAlt: string = 'Canal de Youtube.';
-
-// extras - github
-const gitHubSrc: string = '/imagenes/navegacion/github.webp';
-const gitHubAlt: string = 'Perfil de GitHub.';
 ---
 
 <nav class="_nav">
@@ -152,14 +140,15 @@ const gitHubAlt: string = 'Perfil de GitHub.';
       <ul>
         {
           nav.menu.map(menuItem => (
+            // Menu Item
             <li class="_nav_menu_item group">
               <div>
                 <span class="group-hover:text-yellow-700">
                   {menuItem.text}
                 </span>
-                <img src={arrowDownSrc} alt={arrowDownAlt} />
+                <img class="group-hover:-rotate-90" src={arrowDownSrc} alt={arrowDownAlt} />
               </div>
-              <div class:list={[
+              <div class:list={[ // Sub Menu Box 1 Col o Box Grid 2 Cols
                 'group-hover:visible group-hover:opacity-100',
                 {
                   '_nav_sub_menu_box_1_col': menuItem.subMenuItem.length <= 4,
@@ -178,6 +167,7 @@ const gitHubAlt: string = 'Perfil de GitHub.';
                 ]}>
                   {
                     menuItem.subMenuItem.map(subMenuItem => (
+                      // Sub Menu Item
                       <li class="_nav_sub_menu_item">
                         <a href={subMenuItem.href}>
                           <img src={subMenuItem.iconSrc} alt={subMenuItem.iconAlt} />
@@ -201,206 +191,37 @@ const gitHubAlt: string = 'Perfil de GitHub.';
       </ul>
     </div>
 
-    <!-- Navigation Menu -->
-    <div class="_nav_menu">
-      <ul>
-
-        <!-- Menu Item -->
-        <li class="_nav_menu_item group">
-          <div>
-            <span class="group-hover:text-yellow-700">
-              {emprendimientoMenu}
-            </span>
-            <img src={arrowDownSrc} alt={arrowDownAlt} />
-          </div>
-          <!-- Sub Menu Box 1 Col -->
-          <div class="_nav_sub_menu_box_1_col group-hover:visible group-hover:opacity-100">
-            <ul class="_nav_sub_menu_1_col">
-              <!-- Sub Menu Item -->
-              <li class="_nav_sub_menu_item">
-                <a href="/">
-                  <img src={ideasDeNegociosSrc} alt={ideasDeNegociosAlt}>
-                  <span>
-                    <span>
-                      {ideasDeNegociosText}
-                    </span>
-                    <span>
-                      {ideasDeNegociosDesc}
-                    </span>
-                  </span>
-                </a>
-              </li>
-              <!-- Sub Menu - Item -->
-              <li class="_nav_sub_menu_item">
-                <a href="/">
-                  <img src={emprendimientosDesdeCasaSrc} alt={emprendimientosDesdeCasaAlt}>
-                  <span>
-                    <span>
-                      {emprendimientosDesdeCasaText}
-                    </span>
-                    <span>
-                      {emprendimientosDesdeCasaDesc}
-                    </span>
-                  </span>
-                </a>
-              </li>
-              <!-- Sub Menu - Item -->
-              <li class="_nav_sub_menu_item">
-                <a href="/">
-                  <img src={emprendimientoDigitalSrc} alt={emprendimientoDigitalAlt}>
-                  <span>
-                    <span>
-                      {emprendimientoDigitalText}
-                    </span>
-                    <span>
-                      {emprendimientoDigitalDesc}
-                    </span>
-                  </span>
-                </a>
-              </li>
-              <!-- Sub Menu - Item -->
-              <li class="_nav_sub_menu_item">
-                <a href="/">
-                  <img src={emprendimientosParaMujeresSrc} alt={emprendimientosParaMujeresAlt}>
-                  <span>
-                    <span>
-                      {emprendimientosParaMujeresText}
-                    </span>
-                    <span>
-                      {emprendimientosParaMujeresDesc}
-                    </span>
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-
-        <!-- Menu Item -->
-        <li class="_nav_menu_item group">
-          <div>
-            <span class="group-hover:text-yellow-700">
-              {programacionMenu}
-            </span>
-            <img src="/imagenes/navegacion/teclado-flecha-abajo.webp" alt="Menú desplegable" />
-          </div>
-          <!-- Sub Menu Box Grid 2 Cols -->
-          <div class="_nav_sub_menu_box_2_col group-hover:visible group-hover:opacity-100">
-            <ul class="_nav_sub_menu_2_col">
-              <!-- Sub Menu Item -->
-              <li class="_nav_sub_menu_item">
-                <a href="/">
-                  <img src="/imagenes/navegacion/nestjs.webp" alt="Ideas de Negocios">
-                  <span>
-                    <span>
-                      NestJS
-                    </span>
-                    <span>
-                      Framework backend para TypeScript.
-                    </span>
-                  </span>
-                </a>
-              </li>
-              <!-- Sub Menu - Item -->
-              <li class="_nav_sub_menu_item">
-                <a href="/">
-                  <img src="/imagenes/navegacion/docker.webp" alt="Emprendimientos desde casa">
-                  <span>
-                    <span>
-                      Docker
-                    </span>
-                    <span>
-                      Despliega tus aplicaciones de manera rápida y fácil.
-                    </span>
-                  </span>
-                </a>
-              </li>
-              <!-- Sub Menu - Item -->
-              <li class="_nav_sub_menu_item">
-                <a href="/">
-                  <img src="/imagenes/navegacion/mongodb.webp" alt="Emprendimiento Digital">
-                  <span>
-                    <span>
-                      MongoDB
-                    </span>
-                    <span>
-                      Una base de datos no relacional muy popular.
-                    </span>
-                  </span>
-                </a>
-              </li>
-              <!-- Sub Menu - Item -->
-              <li class="_nav_sub_menu_item">
-                <a href="/">
-                  <img src="/imagenes/navegacion/sql.webp" alt="Emprendimientos para Mujeres">
-                  <span>
-                    <span>
-                      SQL
-                    </span>
-                    <span>
-                      Si eres programador FrontEnd o BackEnd, debes aprender SQL.
-                    </span>
-                  </span>
-                </a>
-              </li>
-              <!-- Sub Menu - Item -->
-              <li class="_nav_sub_menu_item">
-                <a href="/">
-                  <img src="/imagenes/navegacion/typescript.webp" alt="Emprendimientos para Mujeres">
-                  <span>
-                    <span>
-                      TypeScript
-                    </span>
-                    <span>
-                      Aprende a programar de cero a experto.
-                    </span>
-                  </span>
-                </a>
-              </li>
-              <!-- Sub Menu - Item -->
-              <li class="_nav_sub_menu_item">
-                <a href="/">
-                  <img src="/imagenes/navegacion/astrojs.webp" alt="Emprendimientos para Mujeres">
-                  <span>
-                    <span>
-                      Astro
-                    </span>
-                    <span>
-                      Framework para HTML, CSS, JavaScript, Tailwind y mas.
-                    </span>
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-
-      </ul>
-    </div>
-
     <!-- Navigation Extras -->
-    <div class="navigation__extras">
-      <a href="/" class="group">
+    <div class="_nav_net">
+      {
+        networks.map(network => (
+          // network
+          <a class="_nav_net_social group" href={network.href} >
+            {/* icon */}
+            <img src={network.iconSrc} alt={network.iconAlt} />
+            {/* tooltip */}
+            <span class="group-hover:visible group-hover:opacity-100">
+              {network.tooltipText} 
+            </span>
+          </a>
+        ))
+      }
+      <!-- Nav Networks Search -->
+      <button class="_nav_net_search group">
         <!-- icon -->
-        <img src={youtubeSrc} alt={youtubeAlt} />
+        <img src={searchButtonSrc} alt={searchButtonAlt} />
         <!-- tooltip -->
-        <span class="group-hover:visible group-hover:opacity-100"> Youtube </span>
-      </a>
-      <a href="/" class="group">
-        <!-- icon -->
-        <img src={gitHubSrc} alt={gitHubAlt} />
-        <!-- tooltip -->
-        <span class="group-hover:visible group-hover:opacity-100"> GitHub </span>
-      </a>
-      <button class="group">
-        <!-- icon -->
-        <img src="/imagenes/navegacion/buscar.webp" alt="Buscar artículos." />
-        <!-- tooltip -->
-        <span class="group-hover:visible group-hover:opacity-100"> Buscar </span>
+        <span class="group-hover:visible group-hover:opacity-100"> 
+          Buscar
+        </span>
       </button>
-      <a href="/"> Contácto </a>
-      <button>
-        <img src="/imagenes/navegacion/menu.webp" alt="Menú de navegación lateral" />
+      <!-- Nav Networks Contact -->
+      <a class="_nav_net_contact" href="/"> 
+        Contácto 
+      </a>
+      <!-- Nav Networks Mobile Button -->
+      <button class="_nav_mobile_button">
+        <img src={mobileButtonSrc} alt={mobileButtonAlt} />
       </button>
     </div>
   </div>
