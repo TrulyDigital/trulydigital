@@ -10,7 +10,7 @@ const arrowDownSrc: string = '/imagenes/navegacion/teclado-flecha-abajo.webp';
 const arrowDownAlt: string = 'Menú desplegable'; 
 
 // menu data
-const menu: NavigationMenuDto = {
+const nav: NavigationMenuDto = {
   menu: [
     {
       text: 'Emprendimiento',
@@ -134,13 +134,13 @@ const gitHubSrc: string = '/imagenes/navegacion/github.webp';
 const gitHubAlt: string = 'Perfil de GitHub.';
 ---
 
-<nav class="navigation">
+<nav class="_nav">
 
-  <!-- Navigation Container -->
-  <div class="navigation_container">
+  <!-- Navigation Box -->
+  <div class="_nav_box">
 
     <!-- Navigation Logo -->
-    <div class="navigation__logo">
+    <div class="_nav_logo">
       <a href="/">
         <img src={logoSrc} alt={logoAlt} />
         <span>TrulyDigital.tech</span>
@@ -148,22 +148,76 @@ const gitHubAlt: string = 'Perfil de GitHub.';
     </div>
 
     <!-- Navigation Menu -->
-    <div class="navigation__menu">
+    <div class="_nav_menu">
+      <ul>
+        {
+          nav.menu.map(menuItem => (
+            <li class="_nav_menu_item group">
+              <div>
+                <span class="group-hover:text-yellow-700">
+                  {menuItem.text}
+                </span>
+                <img src={arrowDownSrc} alt={arrowDownAlt} />
+              </div>
+              <div class:list={[
+                'group-hover:visible group-hover:opacity-100',
+                {
+                  '_nav_sub_menu_box_1_col': menuItem.subMenuItem.length <= 4,
+                },
+                {
+                  '_nav_sub_menu_box_2_col': menuItem.subMenuItem.length > 4,
+                }
+              ]}>
+                <ul class:list={[
+                  {
+                    '_nav_sub_menu_1_col' : menuItem.subMenuItem.length <= 4,
+                  },
+                  {
+                    '_nav_sub_menu_2_col' : menuItem.subMenuItem.length > 4,
+                  }
+                ]}>
+                  {
+                    menuItem.subMenuItem.map(subMenuItem => (
+                      <li class="_nav_sub_menu_item">
+                        <a href={subMenuItem.href}>
+                          <img src={subMenuItem.iconSrc} alt={subMenuItem.iconAlt} />
+                          <span>
+                            <span>
+                              {subMenuItem.text}
+                            </span>
+                            <span>
+                              {subMenuItem.desc}
+                            </span>
+                          </span>
+                        </a>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <!-- Navigation Menu -->
+    <div class="_nav_menu">
       <ul>
 
         <!-- Menu Item -->
-        <li class="group">
+        <li class="_nav_menu_item group">
           <div>
             <span class="group-hover:text-yellow-700">
               {emprendimientoMenu}
             </span>
             <img src={arrowDownSrc} alt={arrowDownAlt} />
           </div>
-          <!-- Sub Menu -->
-          <div class="navigation__menu___submenu-cols group-hover:visible group-hover:opacity-100">
-            <ul class="navigation__menu___submenu-cols-1">
-              <!-- Sub Menu - Item -->
-              <li class="navigation__menu___submenu-item">
+          <!-- Sub Menu Box 1 Col -->
+          <div class="_nav_sub_menu_box_1_col group-hover:visible group-hover:opacity-100">
+            <ul class="_nav_sub_menu_1_col">
+              <!-- Sub Menu Item -->
+              <li class="_nav_sub_menu_item">
                 <a href="/">
                   <img src={ideasDeNegociosSrc} alt={ideasDeNegociosAlt}>
                   <span>
@@ -177,7 +231,7 @@ const gitHubAlt: string = 'Perfil de GitHub.';
                 </a>
               </li>
               <!-- Sub Menu - Item -->
-              <li class="navigation__menu___submenu-item">
+              <li class="_nav_sub_menu_item">
                 <a href="/">
                   <img src={emprendimientosDesdeCasaSrc} alt={emprendimientosDesdeCasaAlt}>
                   <span>
@@ -191,7 +245,7 @@ const gitHubAlt: string = 'Perfil de GitHub.';
                 </a>
               </li>
               <!-- Sub Menu - Item -->
-              <li class="navigation__menu___submenu-item">
+              <li class="_nav_sub_menu_item">
                 <a href="/">
                   <img src={emprendimientoDigitalSrc} alt={emprendimientoDigitalAlt}>
                   <span>
@@ -205,7 +259,7 @@ const gitHubAlt: string = 'Perfil de GitHub.';
                 </a>
               </li>
               <!-- Sub Menu - Item -->
-              <li class="navigation__menu___submenu-item">
+              <li class="_nav_sub_menu_item">
                 <a href="/">
                   <img src={emprendimientosParaMujeresSrc} alt={emprendimientosParaMujeresAlt}>
                   <span>
@@ -223,18 +277,18 @@ const gitHubAlt: string = 'Perfil de GitHub.';
         </li>
 
         <!-- Menu Item -->
-        <li class="group">
+        <li class="_nav_menu_item group">
           <div>
             <span class="group-hover:text-yellow-700">
               {programacionMenu}
             </span>
             <img src="/imagenes/navegacion/teclado-flecha-abajo.webp" alt="Menú desplegable" />
           </div>
-          <!-- Sub Menu -->
-          <div class="navigation__menu___submenu-grid group-hover:visible group-hover:opacity-100">
-            <ul class="navigation__menu___submenu-cols-2">
-              <!-- Sub Menu - Item -->
-              <li class="navigation__menu___submenu-item">
+          <!-- Sub Menu Box Grid 2 Cols -->
+          <div class="_nav_sub_menu_box_2_col group-hover:visible group-hover:opacity-100">
+            <ul class="_nav_sub_menu_2_col">
+              <!-- Sub Menu Item -->
+              <li class="_nav_sub_menu_item">
                 <a href="/">
                   <img src="/imagenes/navegacion/nestjs.webp" alt="Ideas de Negocios">
                   <span>
@@ -248,7 +302,7 @@ const gitHubAlt: string = 'Perfil de GitHub.';
                 </a>
               </li>
               <!-- Sub Menu - Item -->
-              <li class="navigation__menu___submenu-item">
+              <li class="_nav_sub_menu_item">
                 <a href="/">
                   <img src="/imagenes/navegacion/docker.webp" alt="Emprendimientos desde casa">
                   <span>
@@ -262,7 +316,7 @@ const gitHubAlt: string = 'Perfil de GitHub.';
                 </a>
               </li>
               <!-- Sub Menu - Item -->
-              <li class="navigation__menu___submenu-item">
+              <li class="_nav_sub_menu_item">
                 <a href="/">
                   <img src="/imagenes/navegacion/mongodb.webp" alt="Emprendimiento Digital">
                   <span>
@@ -276,7 +330,7 @@ const gitHubAlt: string = 'Perfil de GitHub.';
                 </a>
               </li>
               <!-- Sub Menu - Item -->
-              <li class="navigation__menu___submenu-item">
+              <li class="_nav_sub_menu_item">
                 <a href="/">
                   <img src="/imagenes/navegacion/sql.webp" alt="Emprendimientos para Mujeres">
                   <span>
@@ -290,7 +344,7 @@ const gitHubAlt: string = 'Perfil de GitHub.';
                 </a>
               </li>
               <!-- Sub Menu - Item -->
-              <li class="navigation__menu___submenu-item">
+              <li class="_nav_sub_menu_item">
                 <a href="/">
                   <img src="/imagenes/navegacion/typescript.webp" alt="Emprendimientos para Mujeres">
                   <span>
@@ -304,7 +358,7 @@ const gitHubAlt: string = 'Perfil de GitHub.';
                 </a>
               </li>
               <!-- Sub Menu - Item -->
-              <li class="navigation__menu___submenu-item">
+              <li class="_nav_sub_menu_item">
                 <a href="/">
                   <img src="/imagenes/navegacion/astrojs.webp" alt="Emprendimientos para Mujeres">
                   <span>

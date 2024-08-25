@@ -1,30 +1,30 @@
 /* Navigation.astro */
 
-.navigation {
+._nav {
   @apply 
   flex items-center justify-center h-16;
 }
 
-/* Navigation Container */
+/* Navigation Box */
 
-.navigation_container{
+._nav_box{
   @apply 
   flex items-center justify-between w-11/12 2xl:w-3/4;
 }
 
 /* Navigation Logo */
 
-.navigation__logo{
+._nav_logo{
   @apply 
   flex-none;
 }
 
-.navigation__logo > a {
+._nav_logo > a {
   @apply 
   flex flex-row items-center;
 }
 
-.navigation__logo a > span {
+._nav_logo a > span {
   @apply 
   font-bold text-lg ml-1 lg:text-2xl hover:text-gray-600
   transition duration-300;
@@ -32,92 +32,92 @@
 
 /* Navigation Menu */
 
-.navigation__menu {
+._nav_menu {
   @apply 
   hidden flex-none lg:block;
 }
 
-.navigation__menu > ul {
+._nav_menu > ul {
   @apply 
   flex flex-row;
 }
 
 /* Menu Item */
 
-.navigation__menu > ul > li {
+._nav_menu_item {
   @apply 
   flex flex-col items-center ml-12 cursor-pointer relative;
 }
 
-.navigation__menu > ul > li > div:nth-child(1) {
+._nav_menu_item > div:nth-child(1) {
   @apply
   flex flex-row items-center;
 }
 
-.navigation__menu > ul > li > div:nth-child(1) span{
+._nav_menu_item > div:nth-child(1) > span{
   @apply 
   text-base text-gray-700;
 }
 
-.navigation__menu > ul > li > div:nth-child(1) img{
+._nav_menu_item > div:nth-child(1) > img{
   @apply 
   ml-2 h-[6px];
 }
 
-/* Sub Menu - Flex Col */
+/* Sub Menu Box 1 Col */
 
-.navigation__menu___submenu-cols {
+._nav_sub_menu_box_1_col {
   @apply
   absolute top-full invisible opacity-0 pt-4 w-72 z-10
   transition-all duration-300;
 }
 
-.navigation__menu___submenu-cols-1 {
+._nav_sub_menu_1_col {
   @apply
   flex flex-col border border-gray-200 rounded-md shadow p-2;
 }
 
-/* Sub Menu - Grid Cols-2 */
+/* Sub Menu Box Grid 2 Cols */
 
-.navigation__menu___submenu-grid {
+._nav_sub_menu_box_2_col {
   @apply
   absolute top-full invisible opacity-0 pt-4 w-[576px] z-10
   transition-all duration-300 ease-in-out;
 }
 
-.navigation__menu___submenu-cols-2{
+._nav_sub_menu_2_col {
   @apply
   grid grid-cols-2 border border-gray-200 rounded-md shadow p-2;
 }
 
-/* Sub Menu - Item*/
+/* Sub Menu Item*/
 
-.navigation__menu___submenu-item{
+._nav_sub_menu_item {
   @apply
   p-3 hover:bg-gray-100 hover:rounded-md;
 }
 
-.navigation__menu___submenu-item > a {
+._nav_sub_menu_item > a {
   @apply
   flex flex-row items-center;
 }
 
-.navigation__menu___submenu-item > a > img {
+._nav_sub_menu_item > a > img {
   @apply
   h-5 w-5;
 }
 
-.navigation__menu___submenu-item > a > span {
+._nav_sub_menu_item > a > span {
   @apply
   flex flex-col ml-3;
 }
 
-.navigation__menu___submenu-item > a > span > span:nth-child(1) {
+._nav_sub_menu_item > a > span > span:nth-child(1) {
   @apply
   text-lg font-bold;
 }
 
-.navigation__menu___submenu-item > a > span > span:nth-child(2) {
+._nav_sub_menu_item > a > span > span:nth-child(2) {
   @apply
   text-sm text-gray-700;
 }
