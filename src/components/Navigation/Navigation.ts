@@ -14,6 +14,7 @@ function openMobileMenu($divSideNav: HTMLDivElement): void{
 function closeMobileMenu(
   $divSideNav: HTMLDivElement, 
   sideNavMenuState: Map<number, boolean>, 
+  sideNavMenuImgState: Map<number, HTMLImageElement>,
   sideNavSubMenuState: Map<number, HTMLDivElement>,
 ): void{
 
@@ -25,6 +26,10 @@ function closeMobileMenu(
 
   for(const [key, _] of sideNavMenuState.entries()){
     sideNavMenuState.set(key, false);
+  }
+
+  for(const [_, value] of sideNavMenuImgState.entries()){
+    value.classList.remove('-rotate-90');
   }
 
   // close sidenav
@@ -40,12 +45,19 @@ function closeMobileMenu(
 function toggleSubMenuMobile(
   idButton: number, 
   sideNavMenuState: Map<number, boolean>, 
+  sideNavMenuImgState: Map<number, HTMLImageElement>,
   sideNavSubMenuState: Map<number, HTMLDivElement>,
 ): void {
 
-  for(const [_, value] of sideNavSubMenuState.entries()){
+  for(const [key, value] of sideNavSubMenuState.entries()){
+
     addInvisibleSubMenu(value);
     removeVisibleSubMenu(value);
+
+    const img: HTMLImageElement | undefined = sideNavMenuImgState.get(key);
+    if(img !== undefined){
+      img.classList.remove('-rotate-90');
+    }
   }
 
   const isOpenSubMenu: boolean | undefined = sideNavMenuState.get(idButton);
@@ -62,6 +74,10 @@ function toggleSubMenuMobile(
     if(subMenu !== undefined){
       removeInvisibleSubMenu(subMenu);
       addVisibleSubMenu(subMenu);
+      const img: HTMLImageElement | undefined = sideNavMenuImgState.get(idButton);
+      if(img !== undefined){
+        img.classList.add('-rotate-90');
+      }
       sideNavMenuState.set(idButton, true);
     }
   }
@@ -115,6 +131,7 @@ function initMobileNav(): void {
 
   // state
   const sideNavMenuState: Map<number, boolean> = new Map();
+  const sideNavMenuImgState: Map<number, HTMLImageElement> = new Map();
   const sideNavSubMenuState: Map<number, HTMLDivElement> = new Map();
 
   // get sidenav element
@@ -128,15 +145,6 @@ function initMobileNav(): void {
   const $sideNavMenuItemList: NodeListOf<HTMLButtonElement> = document.querySelectorAll('._sidenav_menu_item > button');
   const $sideNavSubMenuBoxList: NodeListOf<HTMLDivElement> = document.querySelectorAll('._sidenav_sub_menu_box');
 
-  if($sideNavMenuItemList.length > 0){
-    $sideNavMenuItemList.forEach(button => {
-      const idSplit: string[] = button.id.split('');
-      const idButton: number = parseInt(idSplit[idSplit.length - 1]);
-      sideNavMenuState.set(idButton, false);
-      button.addEventListener('click', () => toggleSubMenuMobile(idButton, sideNavMenuState, sideNavSubMenuState));
-    });
-  }
-
   if($sideNavSubMenuBoxList.length > 0){
     $sideNavSubMenuBoxList.forEach(divSubMenu => {
       const idSplit: string[] = divSubMenu.id.split('');
@@ -145,12 +153,28 @@ function initMobileNav(): void {
     });
   }
 
+  if($sideNavMenuItemList.length > 0){
+    $sideNavMenuItemList.forEach(button => {
+
+      const idSplit: string[] = button.id.split('');
+      const idButton: number = parseInt(idSplit[idSplit.length - 1]);
+      sideNavMenuState.set(idButton, false);
+
+      const img: HTMLImageElement | null = button.querySelector('img');
+      if(img !== null){
+        sideNavMenuImgState.set(idButton, img);
+      }
+      
+      button.addEventListener('click', () => toggleSubMenuMobile(idButton, sideNavMenuState, sideNavMenuImgState, sideNavSubMenuState));
+    });
+  }
+
   if($divSideNav !== null && $buttonOpenMobileMenu !== null){
     $buttonOpenMobileMenu.addEventListener('click', () => openMobileMenu($divSideNav));
   }
 
   if($divSideNav !== null && $buttonCloseMobileMenu !== null){
-    $buttonCloseMobileMenu.addEventListener('click', () => closeMobileMenu($divSideNav, sideNavMenuState, sideNavSubMenuState));
+    $buttonCloseMobileMenu.addEventListener('click', () => closeMobileMenu($divSideNav, sideNavMenuState, sideNavMenuImgState, sideNavSubMenuState));
   }
 }
 
