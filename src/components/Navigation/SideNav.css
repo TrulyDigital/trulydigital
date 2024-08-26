@@ -10,17 +10,23 @@
 
 ._sidenav_close {
   @apply
-  h-16 grid justify-items-stretch;
+  h-16 flex flex-row items-center justify-center w-full;
 }
 
-._sidenav_close > button {
+._sidenav_close > div {
   @apply
-  justify-self-end;
+  grid items-stretch w-11/12;
 }
 
-._sidenav_close > button > img {
+._sidenav_close > div > button {
   @apply
-  p-1 bg-yellow-400 rounded-lg;
+  justify-self-end h-9 w-9 bg-yellow-400 rounded-lg flex 
+  justify-center items-center;
+}
+
+._sidenav_close > div > button > img {
+  @apply
+  w-6;
 }
 
 /* SideNav Menu */
@@ -47,14 +53,14 @@
 
 ._sidenav_sub_menu_box {
   @apply
-  invisible max-h-0 opacity-0 transition-all ease-in-out duration-300;
+  invisible max-h-0 opacity-0 transition ease-in duration-300;
 }
 
 /* SideNav Sub Menu Item */
 
 ._sidenav_sub_menu_item {
   @apply
-  pt-3 pb-3 border-b border-violet-300;
+  pt-3 pb-3 border-b border-pink-300;
 }
 
 ._sidenav_sub_menu_item > a {

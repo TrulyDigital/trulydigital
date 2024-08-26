@@ -3,7 +3,7 @@
  * 
  */
 function openMobileMenu($divSideNav: HTMLDivElement): void{
-  document.body.style.position = 'fixed';
+  //document.body.style.position = 'fixed';
   $divSideNav.style.width = '100%';
 }
 
@@ -18,7 +18,6 @@ function closeMobileMenu(
 ): void{
 
   // set init view of submenus and init state of menus
-
   for(const [_, value] of sideNavSubMenuState.entries()){
     addInvisibleSubMenu(value);
     removeVisibleSubMenu(value);
@@ -28,10 +27,9 @@ function closeMobileMenu(
     sideNavMenuState.set(key, false);
   }
 
-  // close sidenava
-
-  document.body.style.position = 'static';
-  document.body.style.overflowY = 'auto';
+  // close sidenav
+  //document.body.style.position = 'static';
+  //document.body.style.overflowY = 'auto';
   $divSideNav.style.width = '0';
 }
 
