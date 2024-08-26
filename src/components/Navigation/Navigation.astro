@@ -279,6 +279,33 @@ const networks: NetworkMenuDto[] = [
         ))
       }
     </ul>
+    <!-- SideNav Extras and Logo -->
+    <section class="_sidenav_extras_and_logo">
+      <!-- SideNav Logo -->
+      <div class="_sidenav_logo">
+        <a href="/">
+          <img src={logoSrc} alt={logoAlt} />
+          <span>TrulyDigital.tech</span>
+        </a>
+      </div>
+      <span class="mt-1">Transforma tu vida con la tecnología 🚀</span>
+      <!-- SideNav Contact -->
+      <a class="_sidenav_contact" href="/"> 
+        Contácto 
+      </a>
+      <span class="mt-2">Conoce nuestros servicios 🧑‍💻</span>
+      <!-- SideNav Networks -->
+      <div class="_sidenav_networks">
+        {
+          networks.map(network => (
+            <a href={network.href}>
+              <img src={network.iconSrc} alt={network.iconAlt} />
+            </a>
+          ))
+        }
+      </div>
+      <span class="mt-2">Siguenos en nuestras redes 👀🙏</span>
+    </section>
   </div>
 
 </nav>
