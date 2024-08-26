@@ -145,6 +145,13 @@ function initMobileNav(): void {
   const $sideNavMenuItemList: NodeListOf<HTMLButtonElement> = document.querySelectorAll('._sidenav_menu_item > button');
   const $sideNavSubMenuBoxList: NodeListOf<HTMLDivElement> = document.querySelectorAll('._sidenav_sub_menu_box');
 
+  /**
+   * 
+   * Build state and
+   * assign functions to components
+   * 
+   */
+  
   if($sideNavSubMenuBoxList.length > 0){
     $sideNavSubMenuBoxList.forEach(divSubMenu => {
       const idSplit: string[] = divSubMenu.id.split('');
